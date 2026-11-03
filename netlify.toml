@@ -3,7 +3,10 @@
   functions = "netlify/functions"
 
 [build.environment]
-  SECRETS_SCAN_OMIT_PATHS = "README.md"
+  # SMTP_USER is this site's public contact email, so it appears in the page
+  # footers and the resume PDF. Scanning for that value fails the build even
+  # though it is not a secret. SMTP_PASS stays scanned.
+  SECRETS_SCAN_OMIT_KEYS = "SMTP_USER"
 
 
 [[redirects]]
