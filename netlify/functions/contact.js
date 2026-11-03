@@ -30,8 +30,7 @@ function hasEmailConfig() {
   return Boolean(
     process.env.SMTP_HOST &&
       process.env.SMTP_USER &&
-      process.env.SMTP_PASS &&
-      process.env.CONTACT_TO
+      process.env.SMTP_PASS 
   );
 }
 
@@ -80,7 +79,7 @@ exports.handler = async (event) => {
 
     await transporter.sendMail({
       from: `"Portfolio Services" <${process.env.SMTP_USER}>`,
-      to: process.env.CONTACT_TO,
+      to: "faiqimran.fi@gmail.com",
       replyTo: payload.email,
       subject: `New ${payload.service} request from ${payload.name}`,
       text: [
